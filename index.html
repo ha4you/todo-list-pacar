@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List 2025</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        text-align: center;
+        margin: 20px;
+      }
+      .container {
+        max-width: 400px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        color: #ff4081;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      input[type="checkbox"] {
+        transform: scale(1.3);
+        margin-right: 10px;
+      }
+      .checked {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .add-task {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+      }
+      .add-task input {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .add-task button {
+        padding: 8px 12px;
+        background-color: #ff4081;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 10px;
+      }
+      .delete-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>To-Do List Adis 2025</h2>
+      <ul id="todo-list">
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Goa Maria Melung
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Taman
+          Maskemambang
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Pecel Lele
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Curug Kanesia
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Kebun Binatang
+          Purbayasa
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Pratin
+          (Indomie/Roket Chicken)
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Love Mie di
+          Baturaden
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Makan di bawah
+          jalan (Underpass)
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Ice Cream Yauw
+          Purwokerto
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Bale Rahayu
+          (Opsional)
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Spesial Soto
+          Boyolali di GOR
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Queen Fried
+          Chicken (1 Ekor Ayam)
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+        <li>
+          <input type="checkbox" onclick="toggleCheck(this)" /> Main Game di
+          Rita
+          <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>
+        </li>
+      </ul>
+      <div class="add-task">
+        <input
+          type="text"
+          id="new-task"
+          placeholder="Tambahkan tempat baru..."
+        />
+        <button onclick="addTask()">Tambah</button>
+      </div>
+    </div>
+
+    <script>
+      function toggleCheck(checkbox) {
+        let listItem = checkbox.parentElement;
+        if (checkbox.checked) {
+          listItem.classList.add("checked");
+        } else {
+          listItem.classList.remove("checked");
+        }
+      }
+
+      function addTask() {
+        let taskInput = document.getElementById("new-task");
+        let taskValue = taskInput.value.trim();
+        if (taskValue === "") return;
+
+        let listItem = document.createElement("li");
+        listItem.innerHTML = `<input type="checkbox" onclick="toggleCheck(this)"> ${taskValue} <button class="delete-btn" onclick="deleteTask(this)">Hapus</button>`;
+        document.getElementById("todo-list").appendChild(listItem);
+        taskInput.value = "";
+      }
+
+      function deleteTask(button) {
+        let listItem = button.parentElement;
+        listItem.remove();
+      }
+    </script>
+  </body>
+</html>
